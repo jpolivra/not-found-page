@@ -1,0 +1,394 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/*Font Families: 
+    font-family: 'Inconsolata', monospace;
+
+    font-family: 'Montserrat', sans-serif;
+
+    font-family: 'Space Mono', monospace;
+*/
+
+.header-container {
+  grid-area: header;
+}
+
+.main-container {
+  grid-area: main;
+}
+
+.footer-container {
+  grid-area: footer;
+}
+
+body {
+  background-color: #a32a1d;
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px auto 60px;
+  grid-template-areas:
+    "header header"
+    "main main"
+    "footer footer";
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 4.5em;
+  padding-left: 4.5em;
+}
+
+.header-container h1 {
+  font-family: "Inconsolata", monospace;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  color: white;
+  z-index: 3;
+}
+
+.header-container input[type="checkbox"] {
+  -webkit-appearance: none;
+  visibility: hidden;
+  display: none;
+}
+
+.header-container span.check {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 40px;
+  background: #0f1516;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: ease-in 0.5s;
+}
+
+.header-container input[type="checkbox"]:checked ~ .check {
+  background: #fff;
+  box-shadow: 0 0 0 2300px #0f1516;
+}
+
+.check::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  background: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.header-container input[type="checkbox"]:checked ~ .check::before {
+  transform: translateX(-50px);
+}
+
+.check::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  background: #0f1516;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: 0.5s;
+  transform: translateX(50px);
+}
+
+.header-container input[type="checkbox"]:checked ~ .check::after {
+  transform: translateX(0px);
+}
+
+.main-container {
+  display: flex;
+  max-width: 100%;
+  z-index: 3;
+}
+
+div.main-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.main-rigth {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+div.main-rigth h2 {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-size: 4em;
+  line-height: 95px;
+  letter-spacing: -0.035em;
+  max-width: 100%;
+  padding: 20px 10px;
+  color: white;
+}
+
+div.main-rigth p {
+  font-family: "Space Mono", monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  max-width: 500px;
+  padding: 20px 10px;
+  color: white;
+}
+
+div.main-rigth button {
+  font-family: "Space Mono", monospace;
+  border: none;
+  border-radius: none;
+  background-color: white;
+  width: 260px;
+  height: 70px;
+  margin: 20px 10px;
+  font-size: 0.875em;
+  font-weight: bold;
+  color: #0f1516;
+}
+
+div.main-rigth button:hover {
+  cursor: pointer;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-container p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.875em;
+  color: #0f1516;
+  transition: 0.5s;
+}
+
+.footer-container p span {
+  font-weight: bold;
+  z-index: 3;
+}
+
+.footer-container p.ativo {
+  color: white;
+  z-index: 3;
+  transition: 0.5s;
+}
+
+/* Responsivo */
+
+@media (max-width: 1000px) {
+  body {
+    font-size: 0.75em;
+  }
+}
+
+@media (max-width: 769px) {
+  body {
+    background-color: #a32a1d;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 1fr 40px;
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    font-size: 0.65em;
+  }
+
+  .header-container {
+    padding: 0px 20px;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-container div h2 {
+    line-height: 1.3em;
+  }
+  .main-container .main-left {
+    max-width: 400px;
+  }
+
+  .main-container .main-rigth {
+    justify-content: start;
+    align-items: center;
+    text-align: center;
+  }
+  .check::before {
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+  }
+  .check::after {
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+  }
+  .header-container span.check {
+    width: 40px;
+    height: 20px;
+  }
+
+  .main-container .main-rigth h2 {
+    padding: 0px 10px 20px 10px;
+  }
+
+  .main-container .main-rigth p {
+    padding: 0px 10px 20px 10px;
+  }
+
+  .main-container .main-rigth button {
+    margin: 0px 10px 20px 10px;
+  }
+  .header-container input[type="checkbox"]:checked ~ .check {
+    box-shadow: 0 0 0 1000px #0f1516;
+  }
+}
